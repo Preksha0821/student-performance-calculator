@@ -1,0 +1,19 @@
+.panel-heading {
+  text-align: center;
+}
+
+.panel-primary {
+  width: 100%;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.seperator {
+  border-left: 1px solid black;
+}

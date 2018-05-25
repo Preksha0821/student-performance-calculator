@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4>GRADE SUMMARY</h4>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-4">
+              Min : {{minGrade}}
+            </div>
+            <div class="col-sm-4">
+              Max: {{maxGrade}}
+            </div>
+            <div class="col-sm-4">
+              Avg: {{avgOfGrades}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4>STUDENT LIST</h4>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Grade</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of studentData">
+                <td>
+                  {{student.name}}
+                </td>
+                <td [ngClass]="{'red': student.grade < 65, 'green': student.grade > 65}">
+                  {{student.grade}}
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-pencil" (click)="UpdateStudent(student)"></span>
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-remove" (click)="RemoveStudent(student)"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4>{{operation | uppercase}} STUDENT</h4>
+        </div>
+        <div class="panel-body">
+          <form #studentForm="ngForm">
+            <div class="form-group">
+              <label for="name">Student Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" [(ngModel)]="studentDetail.name" #name="ngModel"
+                minlength="2" required>
+              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                <div *ngIf="name.errors.required">
+                  Name is required.
+                </div>
+                <div *ngIf="name.errors.minlength">
+                  Name must be at least 2 characters long.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="grade">Grade</label>
+              <input type="number" class="form-control" id="grade" name="grade" placeholder="Enter Grade" [(ngModel)]="studentDetail.grade"
+                #grade="ngModel" min={{inputGradeMinValue}} max={{inputGradeMaxValue}} required>
+              <div *ngIf="grade.invalid && (grade.dirty || grade.touched)" class="alert alert-danger">
+                <div *ngIf="grade.errors.required">
+                  Grade is required.
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" *ngIf="operation == 'Add'" (click)="AddStudent(studentDetail)" [disabled]="studentForm.invalid">Add</button>
+            <button type="submit" class="btn btn-primary" *ngIf="operation == 'Update'" (click)="SaveStudent(studentDetail)" [disabled]="studentForm.invalid">Update</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
