@@ -9,4 +9,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. `npm install` to install required dependencies.
 2. Run `ng serve` for a dev server. 
-3. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+3. Navigate to `http://localhost:4200/`.
+4. The app will automatically reload if you change any of the source files.
