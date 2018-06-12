@@ -18,6 +18,7 @@ export class StudentDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
     this.studentData = StudentList;
     this.operation = 'Add';
     this.GradeSummary(this.studentData);
@@ -57,4 +58,5 @@ export class StudentDetailsComponent implements OnInit {
     this.GradeSummary(this.studentData);
     this.form.reset();
   }
+
 }

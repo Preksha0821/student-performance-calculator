@@ -8,11 +8,14 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-sm-4">
+              <!-- print minimum grade-- >
               Min : {{minGrade}}
             </div>
+            <!-- print maximum grade -->
             <div class="col-sm-4">
               Max: {{maxGrade}}
             </div>
+            <!-- print average of grades -->
             <div class="col-sm-4">
               Avg: {{avgOfGrades}}
             </div>
@@ -22,7 +25,7 @@
     </div>
   </div>
 
-
+<!--Student Details-->
   <div class="row">
     <div class="col-sm-12">
       <div class="panel panel-primary">
@@ -61,7 +64,7 @@
     </div>
   </div>
 
-
+<!--Student Form -->
   <div class="row">
     <div class="col-sm-12">
       <div class="panel panel-primary">
@@ -97,6 +100,7 @@
 
             <button type="submit" class="btn btn-primary" *ngIf="operation == 'Add'" (click)="AddStudent(studentDetail)" [disabled]="studentForm.invalid">Add</button>
             <button type="submit" class="btn btn-primary" *ngIf="operation == 'Update'" (click)="SaveStudent(studentDetail)" [disabled]="studentForm.invalid">Update</button>
+
 
           </form>
         </div>
