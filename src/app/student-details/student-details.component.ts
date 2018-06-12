@@ -57,4 +57,5 @@ export class StudentDetailsComponent implements OnInit {
     this.GradeSummary(this.studentData);
     this.form.reset();
   }
+  
 }
